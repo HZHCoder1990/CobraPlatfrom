@@ -4,8 +4,10 @@ platform :ios, '14.0'
 use_frameworks!
 
 target 'CobraPlatform' do
+  
+  # emotion effect
    pod 'DBSphereTagCloudSwift'
-  #  pod 'Hero'
+   pod 'Hero'
   
   # rx series
   pod 'RxSwift'
