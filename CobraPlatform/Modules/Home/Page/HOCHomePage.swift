@@ -7,6 +7,7 @@
 
 import UIKit
 import DBSphereTagCloudSwift
+import Hero
 
 class HOCHomePage: CBPBasePage {
     
@@ -95,8 +96,13 @@ extension HOCHomePage {
                         tagView.transform = CGAffineTransformIdentity
                     }, completion: { _ in
 //                        self.sphereView.timerStart()
+                        tagView.hero.id = "tagView"
                         let relevantPage = HOCRelevantPage()
-                        self.navigationController?.pushViewController(relevantPage, animated: true)
+                        relevantPage.modalPresentationStyle = .fullScreen
+                        relevantPage.hero.modalAnimationType = .zoomSlide(direction: .left)
+                        relevantPage.hero.isEnabled = true
+                        self.present(relevantPage, animated: true)
+//                        self.navigationController?.pushViewController(relevantPage, animated: true)
                     })
                 }
             }
@@ -138,8 +144,14 @@ extension HOCHomePage {
     
     
     @objc
-    private func launchRain() {
+    private func launchRain(sender: UIButton) {
         
+//        sender.hero.id = "tagView"
+//        let relevantPage = HOCRelevantPage()
+//        relevantPage.hero.modalAnimationType = .zoomSlide(direction: .left)
+//        relevantPage.hero.isEnabled = true
+//        present(relevantPage, animated: true)
+        /*
         let rainEmitter = CAEmitterLayer()
         rainEmitter.emitterPosition = CGPointMake(SCREEN_WIDTH, 0)
 //        rainEmitter.emitterSize = CGSize(width: SCREEN_WIDTH, height: 0)
@@ -168,7 +180,7 @@ extension HOCHomePage {
         rainEmitter.shadowRadius = 0.0
         rainEmitter.emitterCells = [rainFlake]
         
-        view.layer.insertSublayer(rainEmitter, below: sphereView.layer)
+        view.layer.insertSublayer(rainEmitter, below: sphereView.layer) */
     }
 }
 
